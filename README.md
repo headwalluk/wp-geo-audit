@@ -1,5 +1,11 @@
 # wp-geo-audit
 
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Shell](https://img.shields.io/badge/shell-bash%204%2B-green)
+![License](https://img.shields.io/badge/licence-MIT-yellow)
+![WP-CLI](https://img.shields.io/badge/WP--CLI-required-orange)
+![MaxMind](https://img.shields.io/badge/MaxMind-GeoLite2-purple)
+
 Flag and optionally delete WordPress user accounts whose sessions originate from blocked countries, using MaxMind GeoIP data.
 
 ## How It Works
