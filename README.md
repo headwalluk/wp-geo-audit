@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Shell](https://img.shields.io/badge/shell-bash%204%2B-green)
-![License](https://img.shields.io/badge/licence-MIT-yellow)
+![License](https://img.shields.io/badge/licence-GPL--2.0-yellow)
 ![WP-CLI](https://img.shields.io/badge/WP--CLI-required-orange)
 ![MaxMind](https://img.shields.io/badge/MaxMind-GeoLite2-purple)
 
@@ -103,4 +103,4 @@ The WordPress table prefix is auto-detected via `wp config get table_prefix`.
 
 ## Licence
 
-MIT
+This project is licensed under the [GNU General Public License v2.0](https://www.gnu.org/licenses/gpl-2.0.html). See [LICENCE](LICENCE) for the full text.

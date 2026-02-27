@@ -4,6 +4,8 @@
 #                   whose sessions originate from blocked countries.
 #
 # Version: 1.0.0
+# Homepage: https://github.com/headwalluk/wp-geo-audit
+# Licence:  GPL-2.0-only (https://www.gnu.org/licenses/gpl-2.0.html)
 #
 set -euo pipefail
 VERSION="1.0.0"
