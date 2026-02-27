@@ -23,18 +23,23 @@ MODE="${2:-report}"
 
 # ── Colours ────────────────────────────────────────────────────────────────────
 
-RED=$'\033[0;31m'  YLW=$'\033[1;33m'  GRN=$'\033[0;32m'
-DIM=$'\033[2m'     BLD=$'\033[1m'     RST=$'\033[0m'
+if [[ -t 1 ]]; then
+    RED=$'\033[0;31m'  YLW=$'\033[1;33m'  GRN=$'\033[0;32m'
+    DIM=$'\033[2m'     BLD=$'\033[1m'     RST=$'\033[0m'
+else
+    RED='' YLW='' GRN='' DIM='' BLD='' RST=''
+fi
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
 
 die()   { printf '%s\n' "${RED}Error:${RST} $*" >&2; exit 1; }
 
 usage() {
+    local me="${0##*/}"
     cat <<EOF
 ${BLD}wp-geo-audit${RST} v${VERSION} — Flag/delete WordPress users by country
 
-${BLD}Usage:${RST}  $0 <COUNTRIES> [report|delete]
+${BLD}Usage:${RST}  ${me} <COUNTRIES> [report|delete]
 
 ${BLD}Arguments:${RST}
   COUNTRIES  ${BLD}(required)${RST}
@@ -54,10 +59,10 @@ ${BLD}Environment:${RST}
                  (if not running from the WP root)
 
 ${BLD}Examples:${RST}
-  $0 "RU, CN, IR, BY"
-  $0 "RU, CN, IR" report
-  $0 "KP, IR" delete
-  WP_PATH=/var/www/html $0 "RU, CN"
+  ${me} "RU, CN, IR, BY"
+  ${me} "RU, CN, IR" report
+  ${me} "KP, IR" delete
+  WP_PATH=/var/www/html ${me} "RU, CN"
 EOF
     exit 0
 }
@@ -147,6 +152,7 @@ TABLE_PREFIX=$("$WP" "${WP_OPTS[@]}" config get table_prefix 2>/dev/null) \
 # ── Banner ─────────────────────────────────────────────────────────────────────
 
 printf '\n%s\n' "──────────────────────────────────────────────────────────"
+printf '  %bwp-geo-audit%b v%s\n'     "$BLD" "$RST" "$VERSION"
 printf '  %bMode:%b       %s\n'       "$BLD" "$RST" "${MODE^^}"
 printf '  %bCountries:%b  %s\n'       "$BLD" "$RST" "${BAD_COUNTRIES[*]}"
 printf '  %bGeoIP DB:%b   %s\n'       "$BLD" "$RST" "$GEOIP_DB"

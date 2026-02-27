@@ -45,6 +45,7 @@ Everything lives in `wp-geo-audit.sh`. The flow is:
 - `WP` — path to WP-CLI binary
 - `WP_OPTS` — default WP-CLI flags (`--skip-plugins --skip-themes --skip-packages`)
 - Table prefix is auto-detected via `wp config get table_prefix`
+- Colours auto-disable when stdout is not a terminal (safe to pipe/redirect)
 
 ## Known Bash Pitfalls
 
