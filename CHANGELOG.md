@@ -22,3 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Auto-detection of WordPress table prefix.
 - `WP_PATH` environment variable for targeting remote WordPress installs.
 - `-h` / `--help` flag.
+- Colours auto-disable when stdout is not a terminal (safe to pipe/redirect).
+- Version displayed in runtime banner.
+- `.gitignore` for editor swap files and IDE directories.
